@@ -33,7 +33,7 @@ export default function Episode({ episode }: EpisodeProps) {
   return (
     <div className={styles.episode}>
       <Head>
-        <title>{episode.title} | Podcastr</title>
+        <title>{`${episode.title} | Podcastr`}</title>
       </Head>
 
       <div className={styles.thumbnailContainer}>
@@ -43,10 +43,10 @@ export default function Episode({ episode }: EpisodeProps) {
           </button>
         </Link>
         <Image
+          alt="thumbnail"
           width={700}
           height={160}
           src={episode.thumbnail}
-          objectFit="cover"
         />
         <button type="button">
           <img
