@@ -48,7 +48,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                 <Image
                   width={192}
                   height={192}
-                  style={{objectFit:"cover"}}
+                  style={{ objectFit: "cover" }}
                   src={episode.thumbnail}
                   alt={episode.title}
                 />
@@ -77,52 +77,54 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
       <section className={styles.allEpisodes}>
         <h2>Todos os episódios</h2>
 
-        <table cellSpacing={0}>
-          <thead>
-            <tr>
-              <th></th>
-              <th>Podcasts</th>
-              <th>Integrantes</th>
-              <th>Data</th>
-              <th>Duração</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {allEpisodes.map((episode, index) => {
-              return (
-                <tr key={episode.id}>
-                  <td style={{ width: 72 }}>
-                    <Image
-                      width={120}
-                      height={120}
-                      src={episode.thumbnail}
-                      alt={episode.title}
-                    />
-                  </td>
-                  <td>
-                    <Link href={`/episodes/${episode.id}`} legacyBehavior>
-                      <a>{episode.title}</a>
-                    </Link>
-                  </td>
-                  <td>{episode.members}</td>
-                  <td style={{ width: 100 }}>{episode.publishedAt}</td>
-                  <td>{episode.durationAsString}</td>
-                  <td>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        playList(episodeList, index + latestEpisodes.length)
-                      }
-                    >
-                      <img src="/play-green.svg" alt="Tocar Episódio" />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className={styles.tableContainer}>
+          <table cellSpacing={0}>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Podcasts</th>
+                <th>Integrantes</th>
+                <th>Data</th>
+                <th>Duração</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {allEpisodes.map((episode, index) => {
+                return (
+                  <tr key={episode.id}>
+                    <td style={{ width: 72 }}>
+                      <Image
+                        width={120}
+                        height={120}
+                        src={episode.thumbnail}
+                        alt={episode.title}
+                      />
+                    </td>
+                    <td>
+                      <Link href={`/episodes/${episode.id}`} legacyBehavior>
+                        <a>{episode.title}</a>
+                      </Link>
+                    </td>
+                    <td>{episode.members}</td>
+                    <td style={{ width: 100 }}>{episode.publishedAt}</td>
+                    <td>{episode.durationAsString}</td>
+                    <td>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          playList(episodeList, index + latestEpisodes.length)
+                        }
+                      >
+                        <img src="/play-green.svg" alt="Tocar Episódio" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   );

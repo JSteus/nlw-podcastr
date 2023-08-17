@@ -9,6 +9,7 @@ import { convertDurationToTimeString } from "../../utils/convertDurationToTimeSt
 export default function Player() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [progress, setProgress] = useState(0);
+  const [playerVisible, setPlayerVisible] = useState(true)
 
   const {
     episodeList,
@@ -63,9 +64,9 @@ export default function Player() {
   const episode = episodeList[currentEpisodeIndex];
 
   return (
-    <div className={styles.playerContainer}>
+    <div className={`${styles.playerContainer} ${playerVisible ? styles.playerVisible : ''}`}>
       <header>
-        <img src="/playing.svg" alt="Tocando Agora" />
+        <img onClick={() => setPlayerVisible(!playerVisible)} src="/playing.svg" alt="Tocando Agora" />
         <strong>Tocando agora</strong>
       </header>
 

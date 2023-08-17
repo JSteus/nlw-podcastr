@@ -21,6 +21,12 @@
   --purple-800: #6f48c9;
 }
 
+@media screen and (max-width: 768px) {
+  html {
+    overflow: hidden;
+  }
+}
+
 @media (max-width: 1366px) {
   html {
     font-size: 80%;
